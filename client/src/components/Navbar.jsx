@@ -13,24 +13,24 @@ import { setMode } from "state";
 import profileImage from "assets/profile.jpeg";
 import {
   AppBar,
-  Box,
   Button,
+  Box,
+  Typography,
   IconButton,
   InputBase,
+  Toolbar,
   Menu,
   MenuItem,
-  Toolbar,
-  Typography,
   useTheme,
 } from "@mui/material";
 
-const Navbar = ({ user, isSidebarOpen, SetIsSidebarOpen }) => {
+const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);
-
-  const handleClick = (e) => setAnchorEl(e.currentTarget);
+  const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
 
   return (
@@ -44,20 +44,20 @@ const Navbar = ({ user, isSidebarOpen, SetIsSidebarOpen }) => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* LEFT SIDE */}
         <FlexBetween>
-          <IconButton onClick={() => console.log("Open/Close sidebar")}>
+          <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <MenuIcon />
-            <FlexBetween
-              backgroundColor={theme.palette.background.alt}
-              borderRadius="9px"
-              gap="3rem"
-              p="0.1rem 1.5rem"
-            >
-              <InputBase placeholder="Search..." />
-              <IconButton>
-                <Search />
-              </IconButton>
-            </FlexBetween>
           </IconButton>
+          <FlexBetween
+            backgroundColor={theme.palette.background.alt}
+            borderRadius="9px"
+            gap="3rem"
+            p="0.1rem 1.5rem"
+          >
+            <InputBase placeholder="Search..." />
+            <IconButton>
+              <Search />
+            </IconButton>
+          </FlexBetween>
         </FlexBetween>
 
         {/* RIGHT SIDE */}
@@ -101,7 +101,6 @@ const Navbar = ({ user, isSidebarOpen, SetIsSidebarOpen }) => {
                 >
                   {user.name}
                 </Typography>
-
                 <Typography
                   fontSize="0.75rem"
                   sx={{ color: theme.palette.secondary[200] }}

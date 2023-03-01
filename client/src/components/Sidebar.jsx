@@ -134,11 +134,6 @@ const Sidebar = ({
                     ECOMNEXT
                   </Typography>
                 </Box>
-                {isNonMobile && (
-                  <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-                    <ChevronLeft />
-                  </IconButton>
-                )}
               </FlexBetween>
             </Box>
             <List>
@@ -191,9 +186,9 @@ const Sidebar = ({
               })}
             </List>
           </Box>
+          <Divider />
           <Box position="relative" bottom="2rem">
-            <Divider />
-            <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 0 3rem">
+            <FlexBetween textTransform="none" gap="1rem" m="3.5rem 2rem 0 3rem">
               <Box
                 component="img"
                 alt="profile"
