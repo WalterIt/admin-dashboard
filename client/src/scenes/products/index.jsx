@@ -27,6 +27,8 @@ const Product = ({
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
 
+  // console.log(stat[0].yearlySalesTotal);
+
   return (
     <Card
       sx={{
@@ -79,12 +81,10 @@ const Product = ({
           <Typography> id: {_id} </Typography>
           <Typography> Supply Left: {supply} </Typography>
           <Typography>
-            {" "}
-            Yearly Sales this Year: {stat.yearlySalesTotal}{" "}
+            Yearly Sales this Year: {stat[0].yearlySalesTotal}
           </Typography>
           <Typography>
-            {" "}
-            Yearly Units Sold this Year: {stat.yearlyTotalSoldUnits}{" "}
+            Yearly Units Sold this Year: {stat[0].yearlyTotalSoldUnits}
           </Typography>
         </CardContent>
       </Collapse>
